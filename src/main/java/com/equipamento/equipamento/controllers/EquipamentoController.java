@@ -1,5 +1,6 @@
 
 package com.equipamento.equipamento.controllers;
+
 import java.util.List;
 
 import org.springframework.http.HttpStatus;
@@ -16,17 +17,17 @@ import org.springframework.http.ResponseEntity;
 public class EquipamentoController {
 
 	@Autowired
-    private EquipamentoService equipamentoService;
-	
-	 @PostMapping
-	    public ResponseEntity<Equipamento> createEquipamento(@RequestBody EquipamentoDTO equipamento){
-		 Equipamento newEquipamento  = equipamentoService.createEquipamento(equipamento);
-	        return new ResponseEntity<>(newEquipamento, HttpStatus.CREATED);
-	    }
+	private EquipamentoService equipamentoService;
 
-	    @GetMapping
-	    public ResponseEntity<List<Equipamento>> getAllEquipamentos(){
-	        List<Equipamento> equipamentos = this.equipamentoService.findAll();
-	        return new ResponseEntity<>(equipamentos, HttpStatus.OK);
-	    }
+	@PostMapping
+	public ResponseEntity<Equipamento> createEquipamento(@RequestBody EquipamentoDTO equipamento) {
+		Equipamento newEquipamento = equipamentoService.createEquipamento(equipamento);
+		return new ResponseEntity<>(newEquipamento, HttpStatus.CREATED);
+	}
+
+	@GetMapping
+	public ResponseEntity<List<Equipamento>> getAllEquipamentos() {
+		List<Equipamento> equipamentos = this.equipamentoService.findAll();
+		return new ResponseEntity<>(equipamentos, HttpStatus.OK);
+	}
 }

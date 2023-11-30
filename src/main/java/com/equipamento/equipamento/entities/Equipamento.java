@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 import com.equipamento.equipamento.dtos.EquipamentoDTO;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -18,23 +19,35 @@ private static final long serialVersionUID = 1L;
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column()
 	private Long id;
+
+	@Column()
 	private String descricao;
+	
+	@Column()
 	private String tipo;
+	
+	@Column()
 	private String adquiridoEm;
-	private String tempoDeDepreciação;
+	
+	@Column()
+	private String tempoDeDepreciacao;
+	
+	@Column()
 	private String finalidade;
+	
+	@Column()
 	private boolean status;
 	
-	//@JsonIgnore
-	//@OneToMany(mappedBy = "client")
-	//private List<Order> orders = new ArrayList<>();
-	
+
+	public Equipamento(){};
+
 	public Equipamento(EquipamentoDTO data) {
 		this.descricao = data.descricao();
 		this.tipo = data.tipo();
 		this.adquiridoEm = data.adquiridoEm();
-		this.tempoDeDepreciação = data.tempoDeDepreciação();
+		this.tempoDeDepreciacao = data.tempoDeDepreciacao();
 		this.finalidade = data.finalidade();
 		this.status = data.status();
 	}
@@ -89,14 +102,14 @@ private static final long serialVersionUID = 1L;
 
 
 
-	public String getTempoDeDepreciação() {
-		return tempoDeDepreciação;
+	public String getTempoDeDepreciacao() {
+		return tempoDeDepreciacao;
 	}
 
 
 
-	public void setTempoDeDepreciação(String tempoDeDepreciação) {
-		this.tempoDeDepreciação = tempoDeDepreciação;
+	public void setTempoDeDepreciação(String tempoDeDepreciacao) {
+		this.tempoDeDepreciacao = tempoDeDepreciacao;
 	}
 
 

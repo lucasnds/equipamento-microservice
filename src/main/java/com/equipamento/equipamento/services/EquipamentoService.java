@@ -1,6 +1,6 @@
 package com.equipamento.equipamento.services;
 
-import org.jvnet.hk2.annotations.Service;
+import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.equipamento.equipamento.dtos.EquipamentoDTO;
