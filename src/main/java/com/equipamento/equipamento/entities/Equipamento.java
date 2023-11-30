@@ -2,6 +2,8 @@ package com.equipamento.equipamento.entities;
 
 import java.io.Serializable;
 
+import com.equipamento.equipamento.dtos.EquipamentoDTO;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -28,20 +30,13 @@ private static final long serialVersionUID = 1L;
 	//@OneToMany(mappedBy = "client")
 	//private List<Order> orders = new ArrayList<>();
 	
-	public Equipamento() {	
-	}
-
-	
-
-	public Equipamento(Long id, String descricao, String tipo, String adquiridoEm, String tempoDeDepreciação, String finalidade, boolean status) {
-		super();
-		this.id = id;
-		this.descricao = descricao;
-		this.tipo = tipo;
-		this.adquiridoEm = adquiridoEm;
-		this.tempoDeDepreciação = tempoDeDepreciação;
-		this.finalidade = finalidade;
-		this.status = status;
+	public Equipamento(EquipamentoDTO data) {
+		this.descricao = data.descricao();
+		this.tipo = data.tipo();
+		this.adquiridoEm = data.adquiridoEm();
+		this.tempoDeDepreciação = data.tempoDeDepreciação();
+		this.finalidade = data.finalidade();
+		this.status = data.status();
 	}
 
 
