@@ -31,6 +31,18 @@ public class EquipamentoController {
 		return new ResponseEntity<>(equipamentos, HttpStatus.OK);
 	}
 
+	@GetMapping("/disponiveis")
+	public ResponseEntity<List<Equipamento>> getAllEquipamentosStatusTrue() {
+		List<Equipamento> equipamentos = this.equipamentoService.findAllActiveEquipamentos();
+		return new ResponseEntity<>(equipamentos, HttpStatus.OK);
+	}
+
+	@GetMapping("/{id}")
+	public ResponseEntity<Equipamento> getOneEquipamentos(@PathVariable Long id) {
+		Equipamento equipamentos = equipamentoService.findById(id);
+		return new ResponseEntity<>(equipamentos, HttpStatus.OK);
+	}
+
 	@DeleteMapping("/{id}")
 	public ResponseEntity<Equipamento> deleteEquipamento(@PathVariable Long id) {
 					Equipamento deletedEquipamento = equipamentoService.delete(id);
